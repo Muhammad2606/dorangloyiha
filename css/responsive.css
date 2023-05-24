@@ -1,0 +1,23 @@
+@media only screen and (max-width: 768px) {
+  .explore .title p {
+    width: 100%;
+  }
+  .explore__content {
+    grid-template-columns: 1fr;
+  }
+  .jurnal__content {
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 468px) {
+  .navigation .navbar {
+    display: flex;
+    justify-content: center;
+  }
+  .navigation .navbar a {
+    display: none;
+  }
+  .explore__content .explore__item .explore__img .explore__title {
+    transform: translateY(140px);
+  }
+}/*# sourceMappingURL=responsive.css.map */

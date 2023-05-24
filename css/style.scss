@@ -1,0 +1,268 @@
+@import './global';
+@import url('https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Lora:ital,wght@0,500;1,500&family=Montserrat:ital,wght@0,200;1,200&family=Raleway:ital@0;1&family=Roboto+Condensed:ital@0;1&family=Ysabeau:ital,wght@0,1;0,100;1,100&display=swap');
+
+:root{
+    --castaro : 'Castoro Titling', cursive;
+    --lora : 'Lora', serif;
+    --monster : 'Montserrat', sans-serif;
+    --real : 'Raleway', sans-serif;
+    --roboto : 'Roboto Condensed', sans-serif;
+    --ysa : 'Ysabeau', sans-serif;
+    
+}
+
+@mixin grid ($grid-template-columns){
+    display: grid;
+    grid-template-columns: $grid-template-columns;
+    gap: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+@mixin card (){
+    width: 100%;
+    padding: 4.8rem 0;
+    background-color: #181717;
+}
+@mixin title (){
+    text-align: center;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.navigation{
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(32, 29, 29);
+    position: fixed;
+    z-index: 9999;
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 10vh;
+        a{
+            color: white;
+            font-family: var(--castaro);
+        }
+        img{
+            width: 8%;
+            height: 80%;
+        }
+    }
+}
+.header{
+   width: 100%;
+   height: 100vh;
+   background-image: url(/imgs/header.jpg);
+   background-size: cover;
+   position: relative;
+   .bg__overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+
+   }
+   .title {
+    @include title();
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    color: white;
+    h1{
+        font-size: 3rem;
+        font-family: var(--lora);
+    }
+    p{
+        font-family: var(--real);
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    button{
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: 0;
+        background-color: rgba($color: #000000, $alpha: 0);
+        color: white;
+        font-size: 1.3rem;
+        border: 1px solid white;
+        transition: all 1s linear;
+        &:hover{
+            background-color: #181717;
+
+        }
+    }
+
+   }
+}
+
+.explore{
+    @include card();
+    .title{
+        @include title();
+        h2{
+            margin-bottom: 1rem;
+            font-family: var(--lora);
+            letter-spacing: 2px;
+            font-size: 2rem;
+        }
+        p{
+            width: 60%;
+            margin: 0 auto;
+            font-family: var(--ysa);
+        }
+    }
+}
+.explore__content{
+    @include grid(repeat(3,1fr));
+    .explore__item{
+        .explore__img{
+            position: relative;
+            overflow: hidden;
+            &:hover  .explore__title{
+                transform: translateY(-50px);
+            
+            }
+         img{
+            filter: brightness(30%);
+            }
+            .explore__title{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                color: #fff;
+                text-align: center;
+                transform: translateY(90px);
+                transition: all 0.5s linear;
+                h2{
+                    font-family: var(--lora);
+                    font-size: 2rem;
+                }
+                span{
+                    font-family: var(--ysa);
+                }
+                p{
+                    font-family: var(--real);
+                    margin-top: 2rem;
+                }
+            }
+        
+         }
+
+    }
+
+}
+
+.jurnal{
+    @include card();
+    .title{
+        @include title();
+        h2{
+            font-family: var(--lora);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        p{
+            font-family: var(--ysa);
+        }
+    }
+    p{
+        text-align: center;
+        font-family: var(--ysa);
+        color: #fff;
+        margin-top: 2rem;
+
+    }
+}
+.jurnal__content{
+    @include grid(repeat(2,1fr));
+    .jurnal__item{
+        color: #fff;
+        text-align: center;
+        .img{
+            margin-bottom: 1rem;
+        }
+        span{
+            font-family: var(--ysa);
+        }
+        h2{
+            font-size: 2rem;
+            font-family: var(--castaro);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
+.contact{
+    width: 100%;
+    background-image: url(/imgs/footer.jpg);
+    background-size: cover;
+    .title{
+        @include title();
+        h2{
+            font-size: 2rem;
+            font-family: var(--lora);
+            letter-spacing: 2px;
+        }
+    }
+}
+.overlay__contact{
+    width: 100%;
+    padding: 2rem 0;
+    padding: 4rem 0;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        input{
+            height: 6vh;
+            font-size: 1.3rem;
+            text-indent: 10px;
+            font-family: var(--roboto);
+            border: 0;
+            background-color: rgba($color: #000000, $alpha: 0);
+            border: 1px solid white;
+            color: #fff;
+        }
+        textarea{
+              height: 12vh;
+            font-size: 1.3rem;
+            text-indent: 10px;
+            font-family: var(--roboto);
+            border: 0;
+            background-color: rgba($color: #000000, $alpha: 0);
+            border: 1px solid white;
+            color: #fff;
+        }
+        button{
+              height: 6vh;
+            font-size: 1.3rem;
+            text-indent: 10px;
+            font-family: var(--roboto);
+            border: 0;
+            background-color: rgba($color: #000000, $alpha: 0);
+            border: 1px solid white;
+            color: #fff;
+        }
+    }
+    p{
+        text-align: center;
+       color: #fff;
+       margin-top: 2rem;
+       b{
+        letter-spacing: 1px;
+       }
+       i{
+        color: red;
+       }
+       a{
+            color: #fff;
+       }
+    }
+}
